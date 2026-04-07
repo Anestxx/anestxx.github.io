@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pastel Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Quicksand:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader" id="loader">
+      <div class="loader__content">
+        <div class="loader__logo">RK</div>
+        <p>Stitching your portfolio...</p>
+      </div>
+    </div>
+
+    <div class="dot-overlay"></div>
+
+    <div class="knit-line knit-line--left"></div>
+    <div class="knit-line knit-line--right"></div>
+
+    <main>
+      <section class="hero card parallax" data-speed="0.08">
+        <p class="eyebrow">Designer • Developer • Dreamer</p>
+        <h1>Hey, I’m Rudra — I build joyful, reliable digital experiences.</h1>
+        <p>
+          I love turning ideas into polished products with clean architecture,
+          beautiful interfaces, and tiny delightful details.
+        </p>
+        <div class="actions">
+          <a href="#projects">Explore projects</a>
+          <a href="#contact" class="ghost">Let’s work together</a>
+        </div>
+      </section>
+
+      <section class="about card parallax" data-speed="0.13">
+        <div class="avatar-wrap">
+          <div class="avatar">RK</div>
+          <div class="stitch-ring"></div>
+        </div>
+        <div>
+          <h2>About me</h2>
+          <p>
+            Open source contributor and product-minded engineer. I care about
+            accessibility, performance, and maintainable systems.
+          </p>
+          <p>
+            Tech-flexible, always learning, and always crafting with intention.
+            I enjoy combining pastel visuals with thoughtful UX to make software
+            feel friendly and premium.
+          </p>
+        </div>
+      </section>
+
+      <section id="projects" class="projects">
+        <article class="project card zoom-card" data-zoom="0.22">
+          <h3>Wool Notes</h3>
+          <p>A cozy markdown workspace with threaded comments and live previews.</p>
+        </article>
+        <article class="project card zoom-card" data-zoom="0.28">
+          <h3>Bloom Commerce</h3>
+          <p>High-converting storefront with animated product storytelling.</p>
+        </article>
+        <article class="project card zoom-card" data-zoom="0.34">
+          <h3>Pastel Dash</h3>
+          <p>Analytics dashboard with fluid charts and calm visual hierarchy.</p>
+        </article>
+      </section>
+
+      <section id="contact" class="contact card parallax" data-speed="0.1">
+        <h2>Let’s create something amazing</h2>
+        <p>Book a call or send an email and I’ll get back within 24 hours.</p>
+        <div class="actions">
+          <a href="mailto:hello@example.com">Send an email</a>
+          <a href="#" class="ghost">Book intro call</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
