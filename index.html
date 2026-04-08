@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diksha | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader" id="loader"><span>DK</span></div>
+    <div class="dot-bg" aria-hidden="true"></div>
+
+    <main class="container">
+      <header class="panel hero parallax" data-speed="0.05">
+        <div class="hero-avatar">DK</div>
+        <div>
+          <div class="top-row">
+            <p class="muted">B.Tech CSE Student • Frontend Developer</p>
+            <button id="theme-toggle" class="ghost" type="button">🌙 Dark</button>
+          </div>
+          <h1>Diksha Chaudhary</h1>
+          <p class="lead">
+            Motivated Computer Science student focused on building maintainable,
+            user-friendly web applications with clean UI and strong fundamentals.
+          </p>
+          <div class="actions">
+            <a href="mailto:dikshachy1402@gmail.com">Email</a>
+            <a href="https://github.com/Anestxx" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/dikshachaudhary" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="panel parallax" data-speed="0.08">
+        <h2>Profile Summary</h2>
+        <p>
+          First-year B.Tech Computer Science and Engineering student passionate
+          about software development, problem solving, and practical project
+          building. Looking to contribute to internships and meaningful products.
+        </p>
+      </section>
+
+      <section class="panel parallax" data-speed="0.1">
+        <h2>Education • Skills • Certifications</h2>
+        <div class="cards three-col">
+          <article class="card">
+            <h3>Education</h3>
+            <ul>
+              <li>B.Tech CSE, Presidency University (2024–2028)</li>
+              <li>12th, Kendriya Vidyalaya Yelahanka (2022)</li>
+              <li>10th, Kendriya Vidyalaya Yelahanka (2020)</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Core Skills</h3>
+            <ul>
+              <li>C, C++, HTML, CSS, JavaScript</li>
+              <li>Git, GitHub, VS Code</li>
+              <li>DSA basics and problem solving</li>
+              <li>Responsive frontend development</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Certifications</h3>
+            <ul>
+              <li>Python for Beginners</li>
+              <li>NASA Space Apps Challenge 2025</li>
+              <li>Python 2025 Hackathon participation</li>
+              <li>Technical development workshops</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel parallax" data-speed="0.06">
+        <div class="section-head">
+          <h2>Pinned GitHub Projects</h2>
+          <a class="ghost" href="https://github.com/Anestxx" target="_blank" rel="noreferrer">View all repos</a>
+        </div>
+        <div class="cards repo-grid" id="repo-grid"></div>
+      </section>
+
+      <section class="panel parallax" data-speed="0.09">
+        <h2>Snake Contribution Chart</h2>
+        <p class="helper">Auto-loaded from your GitHub contribution snake output.</p>
+        <img
+          class="snake-chart"
+          src="https://raw.githubusercontent.com/Anestxx/Anestxx/output/snake.svg"
+          alt="GitHub snake contribution chart"
+          loading="lazy"
+        />
+      </section>
+
+      <section class="panel parallax" data-speed="0.12">
+        <h2>Technical Projects</h2>
+        <div class="cards two-col">
+          <article class="card project-card">
+            <h3>Particle Collision Simulation</h3>
+            <p>Physics simulation demonstrating collision mechanics in JavaScript.</p>
+          </article>
+          <article class="card project-card">
+            <h3>Dress-Up Interactive</h3>
+            <p>Interactive browser project focused on smooth UI interaction.</p>
+          </article>
+          <article class="card project-card">
+            <h3>Portfolio Website</h3>
+            <p>Responsive personal website with structured sections and GitHub integration.</p>
+          </article>
+          <article class="card project-card">
+            <h3>Solar System Visualizer</h3>
+            <p>Planetary motion visualization using animation and JavaScript logic.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <template id="repo-template">
+      <article class="card repo-card" data-depth="0.18">
+        <h3 class="repo-name"></h3>
+        <p class="repo-desc"></p>
+        <div class="repo-meta">
+          <span class="repo-lang"></span>
+          <span class="repo-stars"></span>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
