@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pastel-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diksha | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader" id="loader"><span>✦</span></div>
+    <div class="dotted-grid" aria-hidden="true"></div>
+
+    <main class="shell">
+      <section class="hero grid-box parallax" data-speed="0.08">
+        <div class="hero__top">
+          <img
+            class="avatar"
+            src="https://i.pinimg.com/564x/4b/78/17/4b7817f1dc0d8a9f8933f20b8b97084f.jpg"
+            alt="Diksha profile"
+          />
+          <div>
+            <p class="muted">Frontend Developer • Student</p>
+            <h1 id="typed-name" data-text="Diksha Chaudhary"></h1>
+            <p class="role">B.Tech Computer Science & Engineering</p>
+          </div>
+          <button id="theme-toggle" class="chip chip--ghost" type="button">Switch Theme</button>
+        </div>
+
+        <p class="intro">
+          Hey, I’m Diksha — I design and build clean web interfaces with strong
+          focus on usability, performance, and delightful micro-interactions.
+        </p>
+
+        <div class="hero__actions">
+          <a class="chip" href="mailto:dikshachy1402@gmail.com">Send Email</a>
+          <a class="chip" target="_blank" rel="noreferrer" href="https://github.com/Anestxx">GitHub</a>
+          <a class="chip" target="_blank" rel="noreferrer" href="https://linkedin.com/in/dikshachaudhary">LinkedIn</a>
+        </div>
+      </section>
+
+      <section class="grid-box parallax" data-speed="0.1">
+        <h2>Skills & Tech Stack</h2>
+        <div class="chips" id="skills-chips">
+          <span class="chip small">HTML</span><span class="chip small">CSS</span><span class="chip small">JavaScript</span>
+          <span class="chip small">C++</span><span class="chip small">Git</span><span class="chip small">GitHub</span>
+          <span class="chip small">DSA Basics</span><span class="chip small">Responsive UI</span><span class="chip small">VS Code</span>
+        </div>
+      </section>
+
+      <section class="grid-box parallax" data-speed="0.12">
+        <div class="section-head">
+          <h2>Experience</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline__item">
+            <h3>Bano Technologies</h3>
+            <p>Full Stack Developer • Jan 2024 – Feb 2025</p>
+          </article>
+          <article class="timeline__item">
+            <h3>GDSC</h3>
+            <p>Technical Lead • Sept 2023 – Sept 2024</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="grid-box parallax" data-speed="0.09">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <a class="chip chip--ghost" target="_blank" rel="noreferrer" href="https://github.com/Anestxx">View all</a>
+        </div>
+        <div class="projects" id="repo-grid"></div>
+      </section>
+
+      <section class="grid-box parallax" data-speed="0.08">
+        <h2>Contribution Chart</h2>
+        <img class="contrib" src="https://ghchart.rshah.org/Anestxx" alt="GitHub contributions" loading="lazy" />
+      </section>
+    </main>
+
+    <template id="repo-template">
+      <article class="project-card" data-depth="0.18">
+        <img class="project-card__img" alt="Project preview" />
+        <div class="project-card__body">
+          <h3 class="repo-name"></h3>
+          <p class="repo-desc"></p>
+          <div class="repo-meta">
+            <span class="repo-lang"></span>
+            <span class="repo-stars"></span>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
