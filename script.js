@@ -3,6 +3,7 @@ const loader = document.getElementById("loader");
 const repoGrid = document.getElementById("repo-grid");
 const repoTemplate = document.getElementById("repo-template");
 const themeToggle = document.getElementById("theme-toggle");
+const typedName = document.getElementById("typed-name");
 
 const PINNED_REPOS = [
   "OS-PORTFOLIO",
@@ -28,14 +29,27 @@ themeToggle.addEventListener("click", () => {
 });
 
 window.addEventListener("load", async () => {
+  startTypingEffect();
   await loadPinnedRepos();
-  setupParallax();
-  setTimeout(() => loader.classList.add("hidden"), 260);
+  setupParallaxTrigger();
+  setTimeout(() => loader.classList.add("hidden"), 240);
 });
 
 function updateThemeButton() {
   const isDark = root.getAttribute("data-theme") === "dark";
   themeToggle.textContent = isDark ? "☀️ Light" : "🌙 Dark";
+}
+
+function startTypingEffect() {
+  const text = typedName.dataset.text || "Diksha";
+  typedName.textContent = "";
+  let i = 0;
+
+  const timer = setInterval(() => {
+    typedName.textContent += text[i];
+    i += 1;
+    if (i >= text.length) clearInterval(timer);
+  }, 70);
 }
 
 async function loadPinnedRepos() {
@@ -79,24 +93,37 @@ async function fetchRepo(name) {
   }
 }
 
-function setupParallax() {
-  const sectionParallax = document.querySelectorAll(".parallax");
-  const repoCards = () => document.querySelectorAll(".repo-card");
+function setupParallaxTrigger() {
+  const sections = [...document.querySelectorAll(".parallax")];
+  const repoCards = () => [...document.querySelectorAll(".repo-card")];
+  const active = new Set();
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) active.add(entry.target);
+        else active.delete(entry.target);
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  sections.forEach((el) => observer.observe(el));
 
   const onScroll = () => {
     const y = window.scrollY;
 
-    sectionParallax.forEach((el) => {
-      const speed = Number(el.dataset.speed || 0.06);
-      const offset = Math.min(14, y * speed * 0.08);
-      el.style.transform = `translateY(${offset.toFixed(2)}px)`;
+    active.forEach((el) => {
+      const speed = Number(el.dataset.speed || 0.1);
+      const shift = Math.max(-16, Math.min(16, y * speed * 0.06));
+      el.style.transform = `translateY(${shift.toFixed(2)}px)`;
     });
 
     repoCards().forEach((card) => {
       const rect = card.getBoundingClientRect();
-      const centerDistance = (rect.top + rect.height / 2) - window.innerHeight / 2;
       const depth = Number(card.dataset.depth || 0.15);
-      const shift = Math.max(-10, Math.min(10, centerDistance * -0.02 * depth));
+      const relative = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * 0.03;
+      const shift = Math.max(-8, Math.min(8, relative * depth));
       card.style.transform = `translateY(${shift.toFixed(2)}px)`;
     });
   };
