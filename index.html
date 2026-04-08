@@ -13,83 +13,101 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="loader" id="loader">
-      <span>DK</span>
-    </div>
-
-    <div class="grid-bg"></div>
+    <div class="loader" id="loader"><span>DK</span></div>
+    <div class="grid-bg" aria-hidden="true"></div>
 
     <main class="container">
-      <header class="hero panel fade-in">
+      <header class="panel hero">
         <div class="hero-avatar">DK</div>
         <div>
           <p class="muted">B.Tech CSE Student • Frontend Developer</p>
-          <h1>Diksha</h1>
+          <h1>Diksha Chaudhary</h1>
           <p class="lead">
-            I build clean, user-friendly web experiences with strong focus on
-            UI, problem solving, and modern frontend workflows.
+            Motivated Computer Science student focused on building maintainable,
+            user-friendly web applications with clean UI and strong fundamentals.
           </p>
           <div class="actions">
-            <a href="mailto:dikshachy1402@gmail.com">Send email</a>
+            <a href="mailto:dikshachy1402@gmail.com">Email</a>
             <a href="https://github.com/Anestxx" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/dikshachaudhary" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>
       </header>
 
-      <section class="panel fade-in">
-        <h2>About</h2>
+      <section class="panel">
+        <h2>Profile Summary</h2>
         <p>
-          Motivated first-year Computer Science student passionate about
-          building real-world software projects and improving user experiences.
+          First-year B.Tech Computer Science and Engineering student passionate
+          about software development, problem solving, and practical project
+          building. Looking to contribute to internships and meaningful products.
         </p>
       </section>
 
-      <section class="panel fade-in">
-        <h2>Highlights</h2>
-        <div class="cards three-col" id="highlight-cards">
-          <article class="card compact reveal"><h3>Education</h3><p>B.Tech CSE, Presidency University (2024-2028)</p></article>
-          <article class="card compact reveal"><h3>Certifications</h3><p>Python for Beginners, NASA Space Apps 2025 participant.</p></article>
-          <article class="card compact reveal"><h3>Skills</h3><p>C, C++, HTML, CSS, JavaScript, Git, GitHub, VS Code.</p></article>
+      <section class="panel">
+        <h2>Education • Skills • Certifications</h2>
+        <div class="cards three-col">
+          <article class="card">
+            <h3>Education</h3>
+            <ul>
+              <li>B.Tech CSE, Presidency University (2024–2028)</li>
+              <li>12th, Kendriya Vidyalaya Yelahanka (2022)</li>
+              <li>10th, Kendriya Vidyalaya Yelahanka (2020)</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Core Skills</h3>
+            <ul>
+              <li>C, C++, HTML, CSS, JavaScript</li>
+              <li>Git, GitHub, VS Code</li>
+              <li>DSA basics and problem solving</li>
+              <li>Responsive frontend development</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Certifications</h3>
+            <ul>
+              <li>Python for Beginners</li>
+              <li>NASA Space Apps Challenge 2025</li>
+              <li>Python 2025 Hackathon participation</li>
+              <li>Technical development workshops</li>
+            </ul>
+          </article>
         </div>
       </section>
 
-      <section class="panel fade-in">
+      <section class="panel">
         <div class="section-head">
-          <h2>Pinned Projects</h2>
-          <a class="ghost" href="https://github.com/Anestxx" target="_blank" rel="noreferrer">View profile</a>
+          <h2>Pinned GitHub Projects</h2>
+          <a class="ghost" href="https://github.com/Anestxx" target="_blank" rel="noreferrer">View all repos</a>
         </div>
         <div class="cards three-col" id="repo-grid"></div>
       </section>
 
-      <section class="panel fade-in">
+      <section class="panel">
         <h2>Technical Projects</h2>
-        <div class="cards two-col" id="project-cards">
-          <article class="card preview reveal">
-            <div class="shot"></div>
+        <div class="cards two-col">
+          <article class="card project-card">
             <h3>Particle Collision Simulation</h3>
-            <p>Physics-based simulation built with JavaScript and canvas rendering.</p>
+            <p>Physics simulation demonstrating collision mechanics in JavaScript.</p>
           </article>
-          <article class="card preview reveal">
-            <div class="shot"></div>
+          <article class="card project-card">
             <h3>Dress-Up Interactive</h3>
-            <p>Interactive browser game focused on smooth UI interactions.</p>
+            <p>Interactive browser project focused on smooth UI interaction.</p>
           </article>
-          <article class="card preview reveal">
-            <div class="shot"></div>
+          <article class="card project-card">
             <h3>Portfolio Website</h3>
-            <p>Responsive portfolio with modern layout and themed components.</p>
+            <p>Responsive personal website with structured sections and GitHub integration.</p>
           </article>
-          <article class="card preview reveal">
-            <div class="shot"></div>
+          <article class="card project-card">
             <h3>Solar System Visualizer</h3>
-            <p>Animated planetary motion demo using JavaScript fundamentals.</p>
+            <p>Planetary motion visualization using animation and JavaScript logic.</p>
           </article>
         </div>
       </section>
     </main>
 
     <template id="repo-template">
-      <article class="card compact reveal repo-card">
+      <article class="card repo-card">
         <h3 class="repo-name"></h3>
         <p class="repo-desc"></p>
         <div class="repo-meta">
