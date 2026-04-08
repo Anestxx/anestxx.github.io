@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,13 +14,16 @@
   </head>
   <body>
     <div class="loader" id="loader"><span>DK</span></div>
-    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="dot-bg" aria-hidden="true"></div>
 
     <main class="container">
-      <header class="panel hero">
+      <header class="panel hero parallax" data-speed="0.05">
         <div class="hero-avatar">DK</div>
         <div>
-          <p class="muted">B.Tech CSE Student • Frontend Developer</p>
+          <div class="top-row">
+            <p class="muted">B.Tech CSE Student • Frontend Developer</p>
+            <button id="theme-toggle" class="ghost" type="button">🌙 Dark</button>
+          </div>
           <h1>Diksha Chaudhary</h1>
           <p class="lead">
             Motivated Computer Science student focused on building maintainable,
@@ -34,7 +37,7 @@
         </div>
       </header>
 
-      <section class="panel">
+      <section class="panel parallax" data-speed="0.08">
         <h2>Profile Summary</h2>
         <p>
           First-year B.Tech Computer Science and Engineering student passionate
@@ -43,7 +46,7 @@
         </p>
       </section>
 
-      <section class="panel">
+      <section class="panel parallax" data-speed="0.1">
         <h2>Education • Skills • Certifications</h2>
         <div class="cards three-col">
           <article class="card">
@@ -75,15 +78,26 @@
         </div>
       </section>
 
-      <section class="panel">
+      <section class="panel parallax" data-speed="0.06">
         <div class="section-head">
           <h2>Pinned GitHub Projects</h2>
           <a class="ghost" href="https://github.com/Anestxx" target="_blank" rel="noreferrer">View all repos</a>
         </div>
-        <div class="cards three-col" id="repo-grid"></div>
+        <div class="cards repo-grid" id="repo-grid"></div>
       </section>
 
-      <section class="panel">
+      <section class="panel parallax" data-speed="0.09">
+        <h2>Snake Contribution Chart</h2>
+        <p class="helper">Auto-loaded from your GitHub contribution snake output.</p>
+        <img
+          class="snake-chart"
+          src="https://raw.githubusercontent.com/Anestxx/Anestxx/output/snake.svg"
+          alt="GitHub snake contribution chart"
+          loading="lazy"
+        />
+      </section>
+
+      <section class="panel parallax" data-speed="0.12">
         <h2>Technical Projects</h2>
         <div class="cards two-col">
           <article class="card project-card">
@@ -107,7 +121,7 @@
     </main>
 
     <template id="repo-template">
-      <article class="card repo-card">
+      <article class="card repo-card" data-depth="0.18">
         <h3 class="repo-name"></h3>
         <p class="repo-desc"></p>
         <div class="repo-meta">
