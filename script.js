@@ -14,54 +14,44 @@ const PINNED_REPOS = [
   "Golf-Charity-Subscription-Platform",
 ];
 
-const savedTheme = localStorage.getItem("portfolio-theme");
-if (savedTheme === "dark" || savedTheme === "light") {
-  root.setAttribute("data-theme", savedTheme);
-}
-updateThemeButton();
+const savedTheme = localStorage.getItem("theme-mode");
+if (savedTheme) root.setAttribute("data-theme", savedTheme);
 
 themeToggle.addEventListener("click", () => {
-  const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
-  const next = current === "dark" ? "light" : "dark";
+  const next = root.getAttribute("data-theme") === "pastel-light" ? "pastel-dark" : "pastel-light";
   root.setAttribute("data-theme", next);
-  localStorage.setItem("portfolio-theme", next);
-  updateThemeButton();
+  localStorage.setItem("theme-mode", next);
 });
 
 window.addEventListener("load", async () => {
-  startTypingEffect();
-  await loadPinnedRepos();
-  setupParallaxTrigger();
-  setTimeout(() => loader.classList.add("hidden"), 240);
+  typeName();
+  await loadRepos();
+  initParallax();
+  setTimeout(() => loader.classList.add("hidden"), 260);
 });
 
-function updateThemeButton() {
-  const isDark = root.getAttribute("data-theme") === "dark";
-  themeToggle.textContent = isDark ? "☀️ Light" : "🌙 Dark";
-}
-
-function startTypingEffect() {
+function typeName() {
   const text = typedName.dataset.text || "Diksha";
   typedName.textContent = "";
-  let i = 0;
+  let index = 0;
 
   const timer = setInterval(() => {
-    typedName.textContent += text[i];
-    i += 1;
-    if (i >= text.length) clearInterval(timer);
+    typedName.textContent += text[index];
+    index += 1;
+    if (index >= text.length) clearInterval(timer);
   }, 70);
 }
 
-async function loadPinnedRepos() {
+async function loadRepos() {
   repoGrid.innerHTML = "";
   const repos = await Promise.all(PINNED_REPOS.map((name) => fetchRepo(name)));
 
-  repos.forEach((repo, index) => {
+  repos.forEach((repo, i) => {
     const node = repoTemplate.content.cloneNode(true);
-    const card = node.querySelector(".repo-card");
-    const depth = 0.12 + (index % 3) * 0.04;
+    const card = node.querySelector(".project-card");
 
-    card.dataset.depth = String(depth);
+    card.dataset.depth = String(0.12 + (i % 3) * 0.03);
+    node.querySelector(".project-card__img").src = `https://opengraph.githubassets.com/1/Anestxx/${repo.name}`;
     node.querySelector(".repo-name").textContent = repo.name;
     node.querySelector(".repo-desc").textContent = repo.description || "Pinned repository from Anestxx.";
     node.querySelector(".repo-lang").textContent = `● ${repo.language || "N/A"}`;
@@ -93,37 +83,37 @@ async function fetchRepo(name) {
   }
 }
 
-function setupParallaxTrigger() {
+function initParallax() {
   const sections = [...document.querySelectorAll(".parallax")];
-  const repoCards = () => [...document.querySelectorAll(".repo-card")];
-  const active = new Set();
+  const cards = () => [...document.querySelectorAll(".project-card")];
+  const inView = new Set();
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) active.add(entry.target);
-        else active.delete(entry.target);
+        if (entry.isIntersecting) inView.add(entry.target);
+        else inView.delete(entry.target);
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.2 }
   );
 
-  sections.forEach((el) => observer.observe(el));
+  sections.forEach((section) => observer.observe(section));
 
   const onScroll = () => {
     const y = window.scrollY;
 
-    active.forEach((el) => {
-      const speed = Number(el.dataset.speed || 0.1);
-      const shift = Math.max(-16, Math.min(16, y * speed * 0.06));
-      el.style.transform = `translateY(${shift.toFixed(2)}px)`;
+    inView.forEach((section) => {
+      const speed = Number(section.dataset.speed || 0.1);
+      const shift = Math.max(-16, Math.min(16, y * speed * 0.05));
+      section.style.transform = `translateY(${shift.toFixed(2)}px)`;
     });
 
-    repoCards().forEach((card) => {
+    cards().forEach((card) => {
       const rect = card.getBoundingClientRect();
       const depth = Number(card.dataset.depth || 0.15);
       const relative = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * 0.03;
-      const shift = Math.max(-8, Math.min(8, relative * depth));
+      const shift = Math.max(-9, Math.min(9, relative * depth));
       card.style.transform = `translateY(${shift.toFixed(2)}px)`;
     });
   };
