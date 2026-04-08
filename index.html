@@ -3,85 +3,136 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pastel Portfolio</title>
+    <title>Diksha | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Quicksand:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="loader" id="loader">
-      <div class="loader__content">
-        <div class="loader__logo">RK</div>
-        <p>Stitching your portfolio...</p>
-      </div>
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader__bubble">DK</div>
+      <p>Loading your cozy portfolio...</p>
     </div>
 
-    <div class="dot-overlay"></div>
-
-    <div class="knit-line knit-line--left"></div>
-    <div class="knit-line knit-line--right"></div>
+    <div class="dot-bg"></div>
+    <div class="yarn yarn--left"></div>
+    <div class="yarn yarn--right"></div>
 
     <main>
-      <section class="hero card parallax" data-speed="0.08">
-        <p class="eyebrow">Designer • Developer • Dreamer</p>
-        <h1>Hey, I’m Rudra — I build joyful, reliable digital experiences.</h1>
-        <p>
-          I love turning ideas into polished products with clean architecture,
-          beautiful interfaces, and tiny delightful details.
-        </p>
-        <div class="actions">
-          <a href="#projects">Explore projects</a>
-          <a href="#contact" class="ghost">Let’s work together</a>
-        </div>
-      </section>
-
-      <section class="about card parallax" data-speed="0.13">
-        <div class="avatar-wrap">
-          <div class="avatar">RK</div>
-          <div class="stitch-ring"></div>
-        </div>
+      <header class="hero card parallax" data-speed="0.06">
         <div>
-          <h2>About me</h2>
-          <p>
-            Open source contributor and product-minded engineer. I care about
-            accessibility, performance, and maintainable systems.
-          </p>
-          <p>
-            Tech-flexible, always learning, and always crafting with intention.
-            I enjoy combining pastel visuals with thoughtful UX to make software
-            feel friendly and premium.
+          <p class="tag">B.Tech CSE Student • Frontend Developer</p>
+          <h1>DIKSHA</h1>
+          <p class="subtitle">
+            Motivated and dedicated first-year Computer Science student building
+            polished, user-friendly web experiences.
           </p>
         </div>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> dikshachy1402@gmail.com</li>
+          <li><strong>Phone:</strong> +91-7760628715</li>
+          <li><strong>GitHub:</strong> github.com/Anestxx</li>
+          <li><strong>LinkedIn:</strong> linkedin.com/in/dikshachaudhary</li>
+          <li><strong>Location:</strong> SLV Poorvik, Yelahanka, Bangalore</li>
+        </ul>
+      </header>
+
+      <section class="card objective parallax" data-speed="0.1">
+        <h2>Objective</h2>
+        <p>
+          Eager to apply programming knowledge to real-world projects and
+          internships. Passionate about leveraging technology to create impactful
+          solutions and enhance user experiences.
+        </p>
       </section>
 
-      <section id="projects" class="projects">
-        <article class="project card zoom-card" data-zoom="0.22">
-          <h3>Wool Notes</h3>
-          <p>A cozy markdown workspace with threaded comments and live previews.</p>
+      <section class="details-grid">
+        <article class="card mini zoom-card" data-zoom="0.12">
+          <h3>Education</h3>
+          <ul>
+            <li>B.Tech CSE, Presidency University, Bangalore (2024-2028)</li>
+            <li>High School (12th), Kendriya Vidyalaya, Bangalore (2022)</li>
+            <li>Secondary School (10th), Kendriya Vidyalaya, Bangalore (2020)</li>
+          </ul>
         </article>
-        <article class="project card zoom-card" data-zoom="0.28">
-          <h3>Bloom Commerce</h3>
-          <p>High-converting storefront with animated product storytelling.</p>
+
+        <article class="card mini zoom-card" data-zoom="0.14">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Python for Beginners (Coursera/Udemy)</li>
+            <li>NASA Space Apps Challenge 2025 participant</li>
+            <li>Python 2025 Hackathon participant</li>
+            <li>Multiple technical and development workshops</li>
+          </ul>
         </article>
-        <article class="project card zoom-card" data-zoom="0.34">
-          <h3>Pastel Dash</h3>
-          <p>Analytics dashboard with fluid charts and calm visual hierarchy.</p>
+
+        <article class="card mini zoom-card" data-zoom="0.16">
+          <h3>Technical Skills</h3>
+          <ul>
+            <li>Programming: C, C++, HTML, JavaScript</li>
+            <li>Web: HTML, CSS, JavaScript basics</li>
+            <li>Tools: Git, GitHub, VS Code</li>
+            <li>Concepts: DSA basics, problem solving</li>
+          </ul>
+        </article>
+
+        <article class="card mini zoom-card" data-zoom="0.18">
+          <h3>Languages</h3>
+          <ul>
+            <li>English: Fluent</li>
+            <li>Hindi: Native</li>
+          </ul>
+        </article>
+
+        <article class="card mini zoom-card" data-zoom="0.2">
+          <h3>Technical Projects</h3>
+          <ul>
+            <li>Particle collision simulation (JavaScript)</li>
+            <li>Interactive dress-up game</li>
+            <li>Personal portfolio website</li>
+            <li>Solar system visualization</li>
+          </ul>
+        </article>
+
+        <article class="card mini zoom-card" data-zoom="0.22">
+          <h3>Hobbies & Interests</h3>
+          <ul>
+            <li>Coding and improving platforms</li>
+            <li>Exploring new technologies</li>
+            <li>UI/UX design and prototyping</li>
+            <li>Reading tech blogs and AI updates</li>
+          </ul>
         </article>
       </section>
 
-      <section id="contact" class="contact card parallax" data-speed="0.1">
-        <h2>Let’s create something amazing</h2>
-        <p>Book a call or send an email and I’ll get back within 24 hours.</p>
-        <div class="actions">
-          <a href="mailto:hello@example.com">Send an email</a>
-          <a href="#" class="ghost">Book intro call</a>
+      <section id="projects" class="card projects-wrap parallax" data-speed="0.08">
+        <div class="projects-head">
+          <h2>Pinned GitHub Projects</h2>
+          <a href="https://github.com/Anestxx" target="_blank" rel="noreferrer"
+            >View profile ↗</a
+          >
         </div>
+        <p class="projects-note">
+          These cards are loaded from your pinned repositories list.
+        </p>
+        <div id="repo-grid" class="repo-grid"></div>
       </section>
     </main>
+
+    <template id="repo-card-template">
+      <article class="card repo mini">
+        <h3 class="repo__name"></h3>
+        <p class="repo__desc"></p>
+        <div class="repo__meta">
+          <span class="repo__lang"></span>
+          <span class="repo__stars"></span>
+        </div>
+      </article>
+    </template>
 
     <script src="script.js"></script>
   </body>
