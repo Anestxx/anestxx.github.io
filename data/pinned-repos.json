@@ -1,12 +1,11 @@
 {
   "username": "Anestxx",
-  "updatedAt": "2026-05-26T00:00:00.000Z",
+  "updatedAt": "2026-05-26T20:58:45.578Z",
   "repos": [
-    "OS-PORTFOLIO",
     "particles-collision",
     "DRESS-UP.exe",
-    "treasure-hunt-world-map",
-    "algoscope",
-    "Golf-Charity-Subscription-Platform"
+    "Golf-Charity-Subscription-Platform",
+    "bank-management-system",
+    "portfolio-management"
   ]
 }
