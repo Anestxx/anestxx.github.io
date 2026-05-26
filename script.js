@@ -69,8 +69,13 @@ async function loadRepos() {
 }
 
 async function getPinnedRepoNames() {
+  const pinnedFromRepoData = await fetchPinnedRepoNamesFromDataFile();
+  if (pinnedFromRepoData.length > 0) return pinnedFromRepoData;
+
   try {
-    const response = await fetch(`https://gh-pinned-repos.egoist.dev/?username=${GITHUB_USERNAME}`);
+    const response = await fetch(`https://gh-pinned-repos.egoist.dev/?username=${GITHUB_USERNAME}&t=${Date.now()}`, {
+      cache: "no-store",
+    });
     if (!response.ok) return FALLBACK_REPOS;
 
     const pinned = await response.json();
@@ -81,6 +86,20 @@ async function getPinnedRepoNames() {
       .filter((repoName) => typeof repoName === "string" && repoName.trim().length > 0);
   } catch {
     return FALLBACK_REPOS;
+  }
+}
+
+async function fetchPinnedRepoNamesFromDataFile() {
+  try {
+    const response = await fetch(`./data/pinned-repos.json?t=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) return [];
+
+    const data = await response.json();
+    if (!Array.isArray(data?.repos)) return [];
+
+    return data.repos.filter((repoName) => typeof repoName === "string" && repoName.trim().length > 0);
+  } catch {
+    return [];
   }
 }
 
