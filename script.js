@@ -5,7 +5,8 @@ const repoTemplate = document.getElementById("repo-template");
 const themeToggle = document.getElementById("theme-toggle");
 const typedName = document.getElementById("typed-name");
 
-const PINNED_REPOS = [
+const GITHUB_USERNAME = "Anestxx";
+const FALLBACK_REPOS = [
   "OS-PORTFOLIO",
   "particles-collision",
   "DRESS-UP.exe",
@@ -44,16 +45,18 @@ function typeName() {
 
 async function loadRepos() {
   repoGrid.innerHTML = "";
-  const repos = await Promise.all(PINNED_REPOS.map((name) => fetchRepo(name)));
+
+  const pinnedRepoNames = await getPinnedRepoNames();
+  const repos = await Promise.all(pinnedRepoNames.map((name) => fetchRepo(name)));
 
   repos.forEach((repo, i) => {
     const node = repoTemplate.content.cloneNode(true);
     const card = node.querySelector(".project-card");
 
     card.dataset.depth = String(0.12 + (i % 3) * 0.03);
-    node.querySelector(".project-card__img").src = `https://opengraph.githubassets.com/1/Anestxx/${repo.name}`;
+    node.querySelector(".project-card__img").src = `https://opengraph.githubassets.com/1/${GITHUB_USERNAME}/${repo.name}`;
     node.querySelector(".repo-name").textContent = repo.name;
-    node.querySelector(".repo-desc").textContent = repo.description || "Pinned repository from Anestxx.";
+    node.querySelector(".repo-desc").textContent = repo.description || `Pinned repository from ${GITHUB_USERNAME}.`;
     node.querySelector(".repo-lang").textContent = `● ${repo.language || "N/A"}`;
     node.querySelector(".repo-stars").textContent = `★ ${repo.stargazers_count ?? 0}`;
 
@@ -65,17 +68,33 @@ async function loadRepos() {
   });
 }
 
+async function getPinnedRepoNames() {
+  try {
+    const response = await fetch(`https://gh-pinned-repos.egoist.dev/?username=${GITHUB_USERNAME}`);
+    if (!response.ok) return FALLBACK_REPOS;
+
+    const pinned = await response.json();
+    if (!Array.isArray(pinned) || pinned.length === 0) return FALLBACK_REPOS;
+
+    return pinned
+      .map((repo) => repo?.repo)
+      .filter((repoName) => typeof repoName === "string" && repoName.trim().length > 0);
+  } catch {
+    return FALLBACK_REPOS;
+  }
+}
+
 async function fetchRepo(name) {
   const fallback = {
     name,
-    description: "Pinned repository from Anestxx.",
+    description: `Pinned repository from ${GITHUB_USERNAME}.`,
     language: null,
     stargazers_count: 0,
-    html_url: `https://github.com/Anestxx/${name}`,
+    html_url: `https://github.com/${GITHUB_USERNAME}/${name}`,
   };
 
   try {
-    const response = await fetch(`https://api.github.com/repos/Anestxx/${name}`);
+    const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${name}`);
     if (!response.ok) return fallback;
     return await response.json();
   } catch {
